@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+
+*{
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;   
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+} 
+
+.container{
+    display: flex;
+    width: 90vw;
+}
+
+.panel{
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 80vh;
+    border-radius: 50px;
+    border-color: red;
+    margin: 10px;
+    flex: 0.5;
+    color: #fff;
+    cursor: pointer;
+    transition: flex 0.7s ease-in;
+    position: relative;
+}
+/* styling for the text inside the panel, hidden for the element which is not active using opacity:0 */
+.panel h3{
+    font-size: 24px;
+    position: absolute;
+    bottom: 20px;
+    left:15px;
+    color:purple;
+    margin: 0;
+    opacity:0;
+}
+
+/* basically setting flex-grow:5, it will grow the active panel 5 times */
+.active{
+    flex: 5;
+}
+
+.panel.active h3 {
+    opacity: 1;
+    transition: opacity 0.3s ease-in 0.4s;
+}
+ /* If max-width of screen is less equals 480px, then do below */
+@media (max-width:480px){
+    .container{
+        width: 100vw;
+    }
+    /* this will hide 4th and 5th div element */
+    .panel:nth-of-type(4),
+    .panel:nth-of-type(5){
+        display:none;
+    }
+}
